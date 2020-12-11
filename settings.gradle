@@ -1,0 +1,4 @@
+include ':mockitofundamentals'
+include ':testingdoublesfundamentals'
+include ':unittestingfundamentals'
+rootProject.name = "UnitTester"
