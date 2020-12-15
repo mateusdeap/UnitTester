@@ -35,8 +35,9 @@ public class UpdateUsernameUseCaseSync {
             eventBusPoster.postEvent(new UserDetailsChangedEvent(user));
             return UseCaseResult.SUCCESS;
         } else if (result.getStatus() == EndpointResultStatus.SERVER_ERROR) {
-
+            return UseCaseResult.NETWORK_ERROR;
         }
+
         return UseCaseResult.FAILURE;
     }
 }

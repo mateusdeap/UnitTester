@@ -10,7 +10,10 @@ import com.example.mockitofundamentals.user.UsersCache;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
@@ -19,27 +22,29 @@ import static com.example.mockitofundamentals.networking.UpdateUsernameHttpEndpo
 import static com.example.mockitofundamentals.networking.UpdateUsernameHttpEndpointSync.EndpointResultStatus;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class UpdateUsernameUseCaseSyncTest {
 
     public static final String USER_ID = "123456";
     public static final String USERNAME = "Mateus";
     public static final User USER = new User(USER_ID, USERNAME);
+
     private UpdateUsernameUseCaseSync updateUsernameUseCaseSync;
+
+    @Mock
     private UpdateUsernameHttpEndpointSync updateUsernameHttpEndpointSyncMock;
+    @Mock
     private UsersCache usersCacheMock;
+    @Mock
     private EventBusPoster eventBusPosterMock;
 
     @Before
     public void setUp() throws Exception {
-        updateUsernameHttpEndpointSyncMock = mock(UpdateUsernameHttpEndpointSync.class);
-        usersCacheMock = mock(UsersCache.class);
-        eventBusPosterMock = mock(EventBusPoster.class);
         updateUsernameUseCaseSync = new UpdateUsernameUseCaseSync(
                 updateUsernameHttpEndpointSyncMock,
                 usersCacheMock,
