@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/mockitofundamentals" />
+            <option value="$PROJECT_DIR$/testdrivendevelopment" />
             <option value="$PROJECT_DIR$/testingdoublesfundamentals" />
             <option value="$PROJECT_DIR$/unittestingfundamentals" />
           </set>
