@@ -8,14 +8,15 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.List;
-
-import static com.example.testdrivendevelopment.GetReputationUseCaseSync.*;
-import static com.example.testdrivendevelopment.networking.GetReputationHttpEndpointSync.*;
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentCaptor.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static com.example.testdrivendevelopment.GetReputationUseCaseSync.Status;
+import static com.example.testdrivendevelopment.GetReputationUseCaseSync.UseCaseResult;
+import static com.example.testdrivendevelopment.networking.GetReputationHttpEndpointSync.EndpointResult;
+import static com.example.testdrivendevelopment.networking.GetReputationHttpEndpointSync.EndpointStatus;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GetReputationUseCaseSyncTest {
@@ -27,7 +28,7 @@ public class GetReputationUseCaseSyncTest {
     private GetReputationHttpEndpointSync getReputationHttpEndpointSyncMock;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         getReputationUseCaseSync =
                 new GetReputationUseCaseSyncImpl(getReputationHttpEndpointSyncMock);
         when(getReputationHttpEndpointSyncMock.getReputationSync())

@@ -8,7 +8,7 @@ import static com.example.testdrivendevelopment.networking.GetReputationHttpEndp
 import static com.example.testdrivendevelopment.networking.GetReputationHttpEndpointSync.EndpointStatus;
 
 public class GetReputationUseCaseSyncImpl implements GetReputationUseCaseSync {
-    private GetReputationHttpEndpointSync httpEndpoint;
+    private final GetReputationHttpEndpointSync httpEndpoint;
 
     public GetReputationUseCaseSyncImpl(GetReputationHttpEndpointSync httpEndpoint) {
         this.httpEndpoint = httpEndpoint;
